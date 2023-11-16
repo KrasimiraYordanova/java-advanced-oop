@@ -30,7 +30,7 @@ public class Main {
                     birthables.add(pet);
                 } else {
                     Robot robot = new Robot(name, dob_Id);
-                    birthables.add(robot);
+                    // birthables.add(robot);
                 }
             }
 
