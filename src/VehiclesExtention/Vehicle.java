@@ -6,11 +6,13 @@ public class Vehicle {
     private double fuelQuantity;
     private double fuelConsumption;
     private double tankCapacity;
+    private double additionalAirConConsumption;
 
-    protected Vehicle(double fuelQuantity, double fuelConsumption, double tankCapacity) {
+    protected Vehicle(double fuelQuantity, double fuelConsumption, double tankCapacity, double additionalAirConConsumption) {
         this.fuelQuantity = fuelQuantity;
         this.fuelConsumption = fuelConsumption;
         this.tankCapacity = tankCapacity;
+        this.additionalAirConConsumption = additionalAirConConsumption;
     }
 
     public void fillFuel(double liters) {
@@ -23,11 +25,11 @@ public class Vehicle {
         this.fuelQuantity += liters;
     }
 
-    public String driveWithAir_Con(double distance, double additionalConsumption) {
-        setFuelConsumption(getFuelConsumption() + additionalConsumption);
-        String driveResult =  this.drive(distance);
-        setFuelConsumption(getFuelConsumption() - additionalConsumption);
-        return  driveResult;
+    public String driveWithAir_Con(double distance) {
+        setFuelConsumption(getFuelConsumption() + this.additionalAirConConsumption);
+        String driveResult = this.drive(distance);
+        setFuelConsumption(getFuelConsumption() - this.additionalAirConConsumption);
+        return driveResult;
     }
 
     public String drive(double distance) {
